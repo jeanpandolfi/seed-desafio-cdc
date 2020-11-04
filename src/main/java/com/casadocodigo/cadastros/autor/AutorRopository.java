@@ -1,4 +1,4 @@
-package com.casadocodigo.cadastros;
+package com.casadocodigo.cadastros.autor;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
