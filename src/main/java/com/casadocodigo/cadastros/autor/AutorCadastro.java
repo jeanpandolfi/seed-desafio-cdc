@@ -5,22 +5,28 @@ import lombok.Getter;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 
+/**
+ * Classe que expõe a API para o client */
 @Getter
 public class AutorCadastro {
 
-    @NotBlank(message = "O nome é obrigatório")
+    @NotBlank
     private String nome;
 
-    @Email(message = "O email é inválido")
+    @Email
     private String email;
 
-    @NotBlank(message = "A descrição é obrigatória")
-    @Size(max = 400, message = "A descrição não pode passar de 400 caracteres")
+    @NotBlank
+    @Size(min = 2, max = 400)
     private String descricao;
 
+    /**
+     * Método converte um {@link AutorCadastro} em um {@link Autor}
+     * @return uma nova instância de {@link Autor} com base nos atributos deste
+     * objeto setando a dataRegistro de agora.
+     * */
     public Autor toEntity(){
-        return new Autor( this.nome, this.email, this.descricao, LocalDateTime.now());
+        return new Autor(this.nome, this.email, this.descricao);
     }
 }

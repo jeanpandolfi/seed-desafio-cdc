@@ -13,5 +13,10 @@ spring:
     show-sql: true
     format-sql: true
 
+## Configuração para o Spring lançar os Erros ##
+#server:
+#  error:
+#    include-message: always
+#    include-binding-errors: always
 
 

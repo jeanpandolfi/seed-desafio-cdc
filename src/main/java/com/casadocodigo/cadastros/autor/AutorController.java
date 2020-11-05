@@ -20,7 +20,7 @@ public class AutorController {
 
     @Transactional
     @PostMapping
-    public ResponseEntity<Autor> cadastrar(@Valid @RequestBody AutorCadastro autorCadastro){
+    public ResponseEntity<Void> cadastrar(@Valid @RequestBody AutorCadastro autorCadastro){
         this.entityManager.persist(autorCadastro.toEntity());
         return ResponseEntity.ok().build();
     }
