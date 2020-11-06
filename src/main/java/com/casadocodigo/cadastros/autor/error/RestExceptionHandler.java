@@ -9,14 +9,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Classe que intercepta as Exceptions e trata-as */
+ * Classe que intercepta as Exceptions e trata-as
+ * @cargaIntrinseca 2 */
 @RequiredArgsConstructor
 @RestControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
@@ -27,10 +30,16 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         List<ObjectError> globalErrors = ex.getBindingResult().getGlobalErrors();
         List<FieldError> fieldErrors = ex.getBindingResult().getFieldErrors();
-
+        /** @cargaIntrinseca 1 */
         ValidationErrorsOutputDTO validationErrorsOutputDTO =  buildValidationErrors(globalErrors, fieldErrors);
         validationErrorsOutputDTO.setPath(request.getDescription(false));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(validationErrorsOutputDTO);
+    }
+
+    /** @cargaIntrinseca 1 */
+    @ExceptionHandler({AutorException.class})
+    public ResponseEntity<Object> handleAutorException(AutorException ex, HttpServletRequest request){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
 
     /**

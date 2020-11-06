@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * Classe que representa campos de erros da {@link ValidationErrorsOutputDTO}*/
+ * Classe que representa campos de erros da {@link ValidationErrorsOutputDTO}
+ *  @cargaIntrinseca 0 */
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
