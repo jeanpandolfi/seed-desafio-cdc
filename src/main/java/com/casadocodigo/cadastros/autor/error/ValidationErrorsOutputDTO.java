@@ -6,12 +6,14 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Classe de retorno para reponses com Exceptions
+ *  @cargaIntrinseca 1 */
 public class ValidationErrorsOutputDTO {
 
     @Getter
     private List<String> globalErrorsMessages = new ArrayList<>();
-
+    /** @cargaIntrinseca 1 */
     private List<FielErrorOutputDTO> fieldErrors = new ArrayList<>();
 
     @Getter @Setter
