@@ -1,4 +1,4 @@
-package com.casadocodigo.cadastros.autor.error;
+package com.casadocodigo.cadastros.error;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -37,8 +37,8 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     /** @cargaIntrinseca 1 */
-    @ExceptionHandler({AutorException.class})
-    public ResponseEntity<Object> handleAutorException(AutorException ex, HttpServletRequest request){
+    @ExceptionHandler({RegraDeNegocioException.class})
+    public ResponseEntity<Object> handleRegraDeNegocioException(RegraDeNegocioException ex, HttpServletRequest request){
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
 

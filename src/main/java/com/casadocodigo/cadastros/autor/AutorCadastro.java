@@ -1,12 +1,13 @@
 package com.casadocodigo.cadastros.autor;
 
-import com.casadocodigo.cadastros.autor.error.AutorException;
+import com.casadocodigo.cadastros.error.RegraDeNegocioException;
 import lombok.Getter;
 
 import javax.persistence.EntityManager;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Classe que expõe a API para o client
@@ -34,11 +35,11 @@ public class AutorCadastro {
     }
 
     public void verificaEmailUnico(EntityManager entityManager) {
-        Long autorId = entityManager.createQuery("select a.id from Autor a where a.email = :email", Long.class)
-                .setParameter("email", this.email).getSingleResult();
+        List<Long> autorId = entityManager.createQuery("select a.id from Autor a where a.email = :email", Long.class)
+                .setParameter("email", this.email).getResultList();
         /** @cargaIntrinseca 1 */
-        if (autorId != null){
-            throw new AutorException("O email já existe");
+        if (!autorId.isEmpty()){
+            throw new RegraDeNegocioException("O email já existe");
         }
     }
 }

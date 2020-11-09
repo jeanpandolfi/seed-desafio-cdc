@@ -1,16 +1,16 @@
-package com.casadocodigo.cadastros.autor.error;
+package com.casadocodigo.cadastros.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 /** @cargaIntrinseca 0 */
 @ResponseStatus(HttpStatus.BAD_REQUEST)
-public class AutorException extends RuntimeException{
+public class RegraDeNegocioException extends RuntimeException{
 
-    public AutorException(final String message) {
+    public RegraDeNegocioException(final String message) {
         this(message, null);
     }
 
-    public AutorException(final String message, final Throwable cause) {
+    public RegraDeNegocioException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
