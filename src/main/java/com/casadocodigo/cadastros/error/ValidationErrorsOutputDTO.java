@@ -1,4 +1,4 @@
-package com.casadocodigo.cadastros.autor.error;
+package com.casadocodigo.cadastros.error;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,16 +1,15 @@
 package com.casadocodigo.cadastros.autor;
 
-import com.casadocodigo.cadastros.autor.error.AutorException;
+import com.casadocodigo.cadastros.validator.UniqueValue;
 import lombok.Getter;
 
-import javax.persistence.EntityManager;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 /**
  * Classe que expõe a API para o client
- * @cargaIntrinseca 1 */
+ * @cargaIntrinseca 2 */
 @Getter
 public class AutorCadastro {
 
@@ -18,6 +17,8 @@ public class AutorCadastro {
     private String nome;
 
     @Email
+    /** @cargaIntrinseca 1 */
+    @UniqueValue(domainClass = Autor.class, fieldName = "email")
     private String email;
 
     @NotBlank
@@ -28,17 +29,9 @@ public class AutorCadastro {
      * Método converte um {@link AutorCadastro} em um {@link Autor}
      * @return uma nova instância de {@link Autor} com base nos atributos deste
      * objeto setando a dataRegistro de agora.
-     * */
+     * @cargaIntrinseca 1 */
     public Autor toEntity(){
         return new Autor(this.nome, this.email, this.descricao);
     }
 
-    public void verificaEmailUnico(EntityManager entityManager) {
-        Long autorId = entityManager.createQuery("select a.id from Autor a where a.email = :email", Long.class)
-                .setParameter("email", this.email).getSingleResult();
-        /** @cargaIntrinseca 1 */
-        if (autorId != null){
-            throw new AutorException("O email já existe");
-        }
-    }
 }
