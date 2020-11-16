@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+/** @cargaIntrinseca 1 */
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/categorias")
@@ -19,9 +20,8 @@ public class CategoriaController {
     private final EntityManager entityManager;
 
     @Transactional
-    @PostMapping
+    @PostMapping                                 /** @cargaIntrinseca 1 */
     public ResponseEntity<Void> cadastrar(@Valid @RequestBody CategoriaCadastro categoriaCadastro){
-        categoriaCadastro.verificaNomeUnico(entityManager);
         this.entityManager.persist(categoriaCadastro.toModel());
         return ResponseEntity.ok().build();
     }

@@ -23,7 +23,6 @@ public class AutorController {
     @Transactional
     @PostMapping                             /** @cargaIntrinseca 1 */
     public ResponseEntity<Void> cadastrar(@Valid @RequestBody AutorCadastro autorCadastro){
-        autorCadastro.verificaEmailUnico(entityManager);
         this.entityManager.persist(autorCadastro.toEntity());
         return ResponseEntity.ok().build();
     }
