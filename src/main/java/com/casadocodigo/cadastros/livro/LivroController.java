@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.List;
 
 /** @cargaIntrinseca 1 */
 @RequiredArgsConstructor
@@ -27,4 +28,9 @@ public class LivroController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping
+    public ResponseEntity<List<LivroListagemDTO>> listar(){
+        String query = "select new com.casadocodigo.cadastros.livro.LivroListagemDTO(l.id, l.titulo) from Livro l";
+        return ResponseEntity.ok(entityManager.createQuery(query, LivroListagemDTO.class).getResultList());
+    }
 }

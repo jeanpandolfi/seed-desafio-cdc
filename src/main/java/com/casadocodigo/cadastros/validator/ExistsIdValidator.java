@@ -27,7 +27,6 @@ public class ExistsIdValidator implements ConstraintValidator<ExistsId, Long> {
     public boolean isValid(Long id, ConstraintValidatorContext context) {
         Query query = entityManager.createQuery("select 1 from "+klass.getName()+" where "+domainAttribute+" =: id");
         List<?> list = query.setParameter("id", id).getResultList();
-        Assert.state(list.isEmpty(), "O id não Existe");
         if(!list.isEmpty()) return true;
         else return false;
     }
