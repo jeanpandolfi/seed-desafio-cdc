@@ -61,11 +61,9 @@ public class LivroCadastro {
     /** @cargaIntrinseca 1 */
     public Livro toModel() {
         /** @cargaIntrinseca 1 */
-        Categoria categoria = new Categoria();
-        categoria.setId(this.categoriaId);
+        Categoria categoria = Categoria.builder().id(this.categoriaId).build();
         /** @cargaIntrinseca 1 */
-        Autor autor = new Autor();
-        autor.setId(this.autorId);
+        Autor autor = Autor.builder().id(this.autorId).build();
         return new Livro(this.titulo, this.resumo, this.sumario, this.preco, this.qntPaginas, this.isbn,
                 this.dataPublicacao, categoria, autor);
     }

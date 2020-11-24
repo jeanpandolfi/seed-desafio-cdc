@@ -1,7 +1,6 @@
 package com.casadocodigo.cadastros.categoria;
 
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Builder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,13 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-@NoArgsConstructor
+@Builder
 @Entity
 public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter
     private Long id;
 
     @Column(nullable = false, unique = true)
