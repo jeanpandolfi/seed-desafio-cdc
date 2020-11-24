@@ -1,13 +1,11 @@
 package com.casadocodigo.cadastros.livro;
 
 import lombok.AllArgsConstructor;
-
-import java.io.Serializable;
+import lombok.Getter;
 
 @AllArgsConstructor
-public class LivroListagemDTO {
-
+@Getter
+public class LivroListagemDTO{
     private Long id;
-
     private String nome;
 }
