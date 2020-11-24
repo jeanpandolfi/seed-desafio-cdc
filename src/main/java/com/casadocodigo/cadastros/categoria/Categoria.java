@@ -1,5 +1,6 @@
 package com.casadocodigo.cadastros.categoria;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Builder
+@AllArgsConstructor
 @Entity
 public class Categoria {
 
