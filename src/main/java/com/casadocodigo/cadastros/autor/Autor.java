@@ -1,5 +1,6 @@
 package com.casadocodigo.cadastros.autor;
 
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
@@ -14,12 +15,11 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 /**
  * @cargaIntrinseca 0 */
-@NoArgsConstructor
+@Builder
 @Entity
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter
     private Long id;
 
     @Column( nullable = false)
