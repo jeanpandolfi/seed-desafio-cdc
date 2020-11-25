@@ -1,7 +1,9 @@
 package com.casadocodigo.cadastros.livro;
 
 import com.casadocodigo.cadastros.autor.AutorCadastro;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,6 +19,7 @@ public class LivroDetalheDTO {
     private BigDecimal preco;
     private Integer qntPaginas;
     private String isbn;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataPublicacao;
     private String categoria;
     //1
