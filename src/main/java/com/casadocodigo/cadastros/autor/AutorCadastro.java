@@ -1,6 +1,7 @@
 package com.casadocodigo.cadastros.autor;
 
 import com.casadocodigo.cadastros.validator.UniqueValue;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.validation.constraints.Email;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Size;
  * Classe que expõe a API para o client
  * @cargaIntrinseca 2 */
 @Getter
+@AllArgsConstructor
 public class AutorCadastro {
 
     @NotBlank
