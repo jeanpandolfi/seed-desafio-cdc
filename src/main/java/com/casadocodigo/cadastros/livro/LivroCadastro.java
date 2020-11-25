@@ -58,7 +58,9 @@ public class LivroCadastro {
     @ExistsId(domainClass = Autor.class, fieldName = "id")
     private Long autorId;
 
-    /** @cargaIntrinseca 1 */
+    /** Método de coversão de um objeto {@link LivroCadastro} para {@link Livro}
+     * @return {@link Livro}
+     * @cargaIntrinseca 1 */
     public Livro toModel() {
         /** @cargaIntrinseca 1 */
         Categoria categoria = Categoria.builder().id(this.categoriaId).build();

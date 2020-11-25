@@ -6,6 +6,8 @@ import lombok.Getter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/** Classe que expõe a API representando o detalhe de um livro
+ * @cargaIntrinseca 1 */
 @Getter
 public class LivroDetalheDTO {
     private Long id;
@@ -17,6 +19,7 @@ public class LivroDetalheDTO {
     private String isbn;
     private LocalDate dataPublicacao;
     private String categoria;
+    //1
     private AutorCadastro autor;
 
     public LivroDetalheDTO(Long id, String titulo, String resumo, String sumario, BigDecimal preco, Integer qntPaginas, String isbn, LocalDate dataPublicacao, String categoria, String nomeAutor, String emailAutor, String descricaoAutor) {

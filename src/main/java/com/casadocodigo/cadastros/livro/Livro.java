@@ -21,6 +21,7 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+/** @cargaIntrinseca 2 */
 @Entity
 public class Livro {
 
@@ -49,10 +50,12 @@ public class Livro {
     @Column(nullable = false)
     private LocalDate dataPublicacao;
 
+    //
     @ManyToOne
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
 
+    //1
     @ManyToOne
     @JoinColumn(name = "id_autor")
     private Autor autor;

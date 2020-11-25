@@ -20,7 +20,7 @@ public class CategoriaController {
     private final EntityManager entityManager;
 
     @Transactional
-    @PostMapping                                 /** @cargaIntrinseca 1 */
+    @PostMapping                                 //1
     public ResponseEntity<Void> cadastrar(@Valid @RequestBody CategoriaCadastro categoriaCadastro){
         this.entityManager.persist(categoriaCadastro.toModel());
         return ResponseEntity.ok().build();
