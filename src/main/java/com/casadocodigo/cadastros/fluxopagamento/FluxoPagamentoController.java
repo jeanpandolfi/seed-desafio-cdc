@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.persistence.EntityManager;
 import javax.validation.Valid;
 
+/** @cargaIntrinseca 1*/
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/fluxo-pagamento")
@@ -18,13 +19,8 @@ public class FluxoPagamentoController {
 
     private final EntityManager manager;
 
-    @PostMapping
+    @PostMapping                                                    //1
     public ResponseEntity<Void> cadastrosCliente(@RequestBody @Valid ClienteCadastro clienteCadastro){
         return ResponseEntity.ok().build();
-    }
-
-    @GetMapping
-    public ResponseEntity<ClienteCadastro> listar(){
-        return ResponseEntity.ok(new ClienteCadastro());
     }
 }

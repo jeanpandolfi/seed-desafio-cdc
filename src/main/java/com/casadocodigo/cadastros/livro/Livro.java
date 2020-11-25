@@ -50,7 +50,7 @@ public class Livro {
     @Column(nullable = false)
     private LocalDate dataPublicacao;
 
-    //
+    //1
     @ManyToOne
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
